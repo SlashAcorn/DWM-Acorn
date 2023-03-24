@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 8;        /* gaps between windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 9;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -30,7 +30,7 @@ static const char bright_cyan[]	    = "#72B0D7";
 static const char bright_grey[]	    = "#9C7B8B";
 static const char *colors[][3]      = {
 	/*               fg          bg           border   */
-	[SchemeNorm] = { foreground, black,       grey },
+	[SchemeNorm] = { foreground, black,       bright_black },
 	[SchemeSel]  = { foreground, blue,        cyan  },
 };
 
