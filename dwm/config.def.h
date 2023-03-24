@@ -8,15 +8,30 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int attachbelow	    = 1;	/* 1 means attach after the currently active window */
 static const char *fonts[]          = { "monospace:size=10" };
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+/* COLOURS */
+static const char background[]	    = "#1D213C";
+static const char foreground[]	    = "#E5EBF7";
+static const char black[]	    = "#15131D";
+static const char red[] 	    = "#F56486";
+static const char green[]	    = "#48E79A";
+static const char yellow[]	    = "#E5C374";
+static const char blue[]	    = "#2B81D2";
+static const char magenta[]	    = "#E77AC1";
+static const char cyan[]	    = "#97D6FF";
+static const char grey[]	    = "#AD91A3";
+/* BRIGHT COLOURS */
+static const char bright_black[]    = "#2E2F4C";
+static const char bright_red[] 	    = "#E55381";
+static const char bright_green[]    = "#2CDA9D";
+static const char bright_yellow[]   = "#D4A96A";
+static const char bright_blue[]	    = "#1674CE";
+static const char birght_magenta[]  = "#C76DB4";
+static const char bright_cyan[]	    = "#72B0D7";
+static const char bright_grey[]	    = "#9C7B8B";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	/*               fg          bg           border   */
+	[SchemeNorm] = { foreground, black,       grey },
+	[SchemeSel]  = { foreground, blue,        cyan  },
 };
 
 /* tagging */
