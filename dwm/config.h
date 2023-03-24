@@ -30,8 +30,8 @@ static const char bright_cyan[]	    = "#72B0D7";
 static const char bright_grey[]	    = "#9C7B8B";
 static const char *colors[][3]      = {
 	/*               fg          bg           border   */
-	[SchemeNorm] = { foreground, black,       bright_black },
-	[SchemeSel]  = { foreground, blue,        cyan  },
+	[SchemeNorm] = { foreground, black,       bright_grey },
+	[SchemeSel]  = { foreground, blue,        magenta  },
 };
 
 /* tagging */
