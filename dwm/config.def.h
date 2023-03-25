@@ -78,10 +78,18 @@ static const char *roficalc[] = { "rofi", "-show", "calc", "-show-icons", "no-sh
 static const char *rofipass[] = { "rofi-pass", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *filemanager[]  = { "thunar", NULL };
-static const char *brightnessup[] = { "brillo", "-q", "u", "1500", "-A", "10", NULL };
-static const char *brightnessdn[] = { "brillo", "-q", "u", "1500", "-U", "10", NULL };
+static const char *brightnessup[] = { "brillo", "-q", "-u", "150000", "-A", "5", NULL };
+static const char *brightnessdn[] = { "brillo", "-q", "-u", "150000", "-U", "5", NULL };
+static const char *volumeup[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+static const char *volumedn[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *volumemt[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *mphonemt[] = { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
+static const char *arandr[] = { "arandr", NULL };
+static const char *btop[] = { "st", "btop", NULL };
+static const char *rofibrowser[] = { "rofi", "-show", "filebrowser", "-show-icons", NULL };
 static const char *screenshot[] = { "flameshot", "gui", NULL };
 #include "movestack.c"
+#include <X11/XF86keysym.h>
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -91,7 +99,7 @@ static const Key keys[] = {
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 //	{ MODKEY,	                XK_x,      spawn,          {.v = rofibrowser } },
 	{ MODKEY,	                XK_c, spawn,          {.v = filemanager } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+//	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
@@ -114,9 +122,18 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+//	THINKPAD KEYS
+	{ 0, 		XF86XK_AudioMute,          spawn, 	   {.v = volumemt } },
+	{ 0,		XF86XK_AudioLowerVolume,   spawn,	   {.v = volumeup } },
+	{ 0,		XF86XK_AudioRaiseVolume,   spawn,   	   {.v = volumedn } },
+	{ 0,		XF86XK_AudioMicMute,       spawn,  	   {.v = mphonemt } },
+	{ 0,		XF86XK_MonBrightnessUp,    spawn,      	   {.v = brightnessup } },
+	{ 0,		XF86XK_MonBrightnessDown,  spawn,      	   {.v = brightnessdn } },
+	{ 0,		XF86XK_Display,            spawn,      	   {.v = arandr } },
+	{ 0,		XF86XK_Tools,              spawn,      	   {.v = btop } },
+	{ 0,		XF86XK_Search,             spawn,      	   {.v = rofibrowser } },
+	{ 0,		XF86XK_LaunchA,            spawn,      	   {.v = roficmd } },
+	{ 0,		XF86XK_Explorer,           spawn,      	   {.v = filemanager } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
