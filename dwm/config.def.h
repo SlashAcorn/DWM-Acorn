@@ -76,7 +76,8 @@ static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *rofiemoji[] = { "rofi", "-show", "emoji", "-show-icons", NULL };
 static const char *roficalc[] = { "rofi", "-show", "calc", "-show-icons", "no-show-match", "no-sort", NULL };
 static const char *rofipass[] = { "rofi-pass", NULL };
-static const char *rofibrowser[] = { "~/.config/rofi/rofibrowser.sh", NULL };
+static const char *rofibrowser[] = { "/home/nhe/nhe/.config/rofi/rofibrowser.sh", NULL };
+static const char *rofipower[] = { "/home/nhe/nhe/.config/rofi/rofipower.sh", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *filemanager[]  = { "thunar", NULL };
 static const char *brightnessup[] = { "brillo", "-q", "-u", "150000", "-A", "5", NULL };
@@ -99,7 +100,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      spawn,          {.v = rofipass } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,	                XK_x,      spawn,          {.v = rofibrowser } },
-	{ MODKEY,	                XK_c, spawn,          {.v = filemanager } },
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          {.v = roficalc } },
+	{ MODKEY,	                XK_c,      spawn,          {.v = filemanager } },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = rofipower } },
 //	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -124,6 +127,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 //	THINKPAD KEYS
+	{ 0, 		XK_Print, 	           spawn, 	   {.v = screenshot } },
 	{ 0, 		XF86XK_AudioMute,          spawn, 	   {.v = volumemt } },
 	{ 0,		XF86XK_AudioLowerVolume,   spawn,	   {.v = volumeup } },
 	{ 0,		XF86XK_AudioRaiseVolume,   spawn,   	   {.v = volumedn } },
@@ -144,7 +148,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
 };
 
 /* button definitions */
