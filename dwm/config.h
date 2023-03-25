@@ -76,6 +76,7 @@ static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *rofiemoji[] = { "rofi", "-show", "emoji", "-show-icons", NULL };
 static const char *roficalc[] = { "rofi", "-show", "calc", "-show-icons", "no-show-match", "no-sort", NULL };
 static const char *rofipass[] = { "rofi-pass", NULL };
+static const char *rofibrowser[] = { "~/.config/rofi/rofibrowser.sh", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *filemanager[]  = { "thunar", NULL };
 static const char *brightnessup[] = { "brillo", "-q", "-u", "150000", "-A", "5", NULL };
@@ -86,7 +87,7 @@ static const char *volumemt[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "t
 static const char *mphonemt[] = { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
 static const char *arandr[] = { "arandr", NULL };
 static const char *btop[] = { "st", "btop", NULL };
-static const char *rofibrowser[] = { "rofi", "-show", "filebrowser", "-show-icons", NULL };
+static const char *rofifiles[] = { "rofi", "-show", "filebrowser", "-show-icons", NULL };
 static const char *screenshot[] = { "flameshot", "gui", NULL };
 #include "movestack.c"
 #include <X11/XF86keysym.h>
@@ -97,7 +98,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_e,      spawn,          {.v = rofiemoji } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = rofipass } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
-//	{ MODKEY,	                XK_x,      spawn,          {.v = rofibrowser } },
+	{ MODKEY,	                XK_x,      spawn,          {.v = rofibrowser } },
 	{ MODKEY,	                XK_c, spawn,          {.v = filemanager } },
 //	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -131,7 +132,7 @@ static const Key keys[] = {
 	{ 0,		XF86XK_MonBrightnessDown,  spawn,      	   {.v = brightnessdn } },
 	{ 0,		XF86XK_Display,            spawn,      	   {.v = arandr } },
 	{ 0,		XF86XK_Tools,              spawn,      	   {.v = btop } },
-	{ 0,		XF86XK_Search,             spawn,      	   {.v = rofibrowser } },
+	{ 0,		XF86XK_Search,             spawn,      	   {.v = rofifiles } },
 	{ 0,		XF86XK_LaunchA,            spawn,      	   {.v = roficmd } },
 	{ 0,		XF86XK_Explorer,           spawn,      	   {.v = filemanager } },
 	TAGKEYS(                        XK_1,                      0)
