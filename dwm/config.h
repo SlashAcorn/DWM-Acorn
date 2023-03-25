@@ -73,17 +73,31 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
+static const char *rofiemoji[] = { "rofi", "-show", "emoji", "-show-icons", NULL };
+static const char *roficalc[] = { "rofi", "-show", "calc", "-show-icons", "no-show-match", "no-sort", NULL };
+static const char *rofipass[] = { "rofi-pass", NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *filemanager[]  = { "thunar", NULL };
+static const char *brightnessup[] = { "brillo", "-q", "u", "1500", "-A", "10", NULL };
+static const char *brightnessdn[] = { "brillo", "-q", "u", "1500", "-U", "10", NULL };
+static const char *screenshot[] = { "flameshot", "gui", NULL };
+#include "movestack.c"
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_z,      spawn,          {.v = roficmd } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = rofiemoji } },
+	{ MODKEY,                       XK_m,      spawn,          {.v = rofipass } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,	                XK_x,      spawn,          {.v = rofibrowser } },
+	{ MODKEY,	                XK_Return, spawn,          {.v = filemanager } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+//	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+//	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },

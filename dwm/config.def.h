@@ -74,9 +74,14 @@ static const Layout layouts[] = {
 /* commands */
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *rofiemoji[] = { "rofi", "-show", "emoji", "-show-icons", NULL };
+static const char *roficalc[] = { "rofi", "-show", "calc", "-show-icons", "no-show-match", "no-sort", NULL };
 static const char *rofipass[] = { "rofi-pass", NULL };
 static const char *termcmd[]  = { "st", NULL };
-#include movestack.c
+static const char *filemanager[]  = { "thunar", NULL };
+static const char *brightnessup[] = { "brillo", "-q", "u", "1500", "-A", "10", NULL };
+static const char *brightnessdn[] = { "brillo", "-q", "u", "1500", "-U", "10", NULL };
+static const char *screenshot[] = { "flameshot", "gui", NULL };
+#include "movestack.c"
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
