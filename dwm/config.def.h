@@ -18,7 +18,7 @@ static const char yellow[]	    = "#E5C374";
 static const char blue[]	    = "#2B81D2";
 static const char magenta[]	    = "#E77AC1";
 static const char cyan[]	    = "#97D6FF";
-static const char grey[]	    = "#AD91A3";
+static const char grey[]	    = "#ADA3AD";
 /* BRIGHT COLOURS */
 static const char bright_black[]    = "#2E2F4C";
 static const char bright_red[] 	    = "#E55381";
@@ -27,7 +27,7 @@ static const char bright_yellow[]   = "#D4A96A";
 static const char bright_blue[]	    = "#1674CE";
 static const char birght_magenta[]  = "#C76DB4";
 static const char bright_cyan[]	    = "#72B0D7";
-static const char bright_grey[]	    = "#9C7B8B";
+static const char bright_grey[]	    = "#9C8F95";
 static const char *colors[][3]      = {
 	/*               fg          bg           border   */
 	[SchemeNorm] = { foreground, black,       bright_grey },
