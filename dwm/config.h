@@ -78,7 +78,7 @@ static const char *roficalc[] = { "rofi", "-show", "calc", "-show-icons", "no-sh
 static const char *rofipass[] = { "rofi-pass", NULL };
 static const char *rofibrowser[] = { "/home/nhe/nhe/.config/rofi/rofibrowser.sh", NULL };
 static const char *rofipower[] = { "/home/nhe/nhe/.config/rofi/rofipower.sh", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *filemanager[]  = { "thunar", NULL };
 static const char *brightnessup[] = { "brillo", "-q", "-u", "150000", "-A", "5", NULL };
 static const char *brightnessdn[] = { "brillo", "-q", "-u", "150000", "-U", "5", NULL };
@@ -87,7 +87,7 @@ static const char *volumedn[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", 
 static const char *volumemt[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 static const char *mphonemt[] = { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
 static const char *arandr[] = { "arandr", NULL };
-static const char *btop[] = { "st", "btop", NULL };
+static const char *btop[] = { "alacritty", "-e", "btop", NULL };
 static const char *rofifiles[] = { "rofi", "-show", "filebrowser", "-show-icons", NULL };
 static const char *screenshot[] = { "flameshot", "gui", NULL };
 #include "movestack.c"
