@@ -97,7 +97,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_z,      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = rofiemoji } },
-	{ MODKEY,                       XK_m,      spawn,          {.v = rofipass } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = rofipass } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,	                XK_x,      spawn,          {.v = rofibrowser } },
 	{ MODKEY|ShiftMask,             XK_c,      spawn,          {.v = roficalc } },
